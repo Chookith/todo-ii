@@ -6,6 +6,7 @@ export default function Todo(props: any) {
   const [isEditing, setEditing] = useState(false);
 
   const [newName, setNewName] = useState("");
+
   function handleChange(e: any) {
     setNewName(e.target.value);
   }
@@ -33,11 +34,7 @@ export default function Todo(props: any) {
         <button type="button" className="m-5" onClick={() => setEditing(false)}>
           Cancel <span className="sr-only">renaming {props.name}</span>
         </button>
-        <button
-          type="submit"
-          className="m-5"
-          onClick={() => props.deleteTask(props.id)}
-        >
+        <button type="submit" className="m-5">
           Save <span className="sr-only">new name for {props.name}</span>
         </button>
       </div>

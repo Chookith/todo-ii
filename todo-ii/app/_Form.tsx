@@ -9,20 +9,23 @@ export default function Form(props: any) {
     setName(event.target.value);
   }
 
-  function handleSubmit(event: any) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     props.addTask(name);
     setName("");
   }
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      onSubmit={handleSubmit}
+      className="flex justify-center divide-x divide-x-reverse "
+    >
       <h2 className="text-3xl mb-5">
-        <label htmlFor="new-todo-input">what needs to be done</label>
+        <label htmlFor="new-todo-input"></label>
       </h2>
       <input
         type="text"
         id="new-todo-input"
-        className="m-3 p-3 rounded-2xl ring ring-dun"
+        className="mx-3 p-5 rounded-2xl ring ring-dun just"
         name="text"
         autoComplete="off"
         value={name}

@@ -8,7 +8,7 @@ export default function FilterButton(props: any) {
     >
       <span className="sr-only ">Show</span>
       <span>{props.name}</span>
-      <span className="sr-only ">task</span>
+      <span className="sr-only ">tasks</span>
     </button>
   );
 }
