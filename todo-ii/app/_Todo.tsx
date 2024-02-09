@@ -70,22 +70,22 @@ export default function Todo(props: any) {
   function editingTypeButton() {
     if (isEditing === true && isEditingDescription === false) {
       return (
-        <form onSubmit={handleSubmit}>
-          <div className="flex flex-col justify-center">
+        <form onSubmit={handleSubmit} className="m-2 flex w-full flex-row ">
+          <div className="flex basis-11/12  flex-col items-center justify-center">
             {editingTypeInput()}
           </div>
-          <div className="flex flex-row justify-center">
+          <div className="mx-5 flex basis-1/12 flex-col items-end justify-center">
             <button
               title="Save New Name"
               type="submit"
-              className="m-2  rounded-2xl bg-apricot p-2 transition delay-75 hover:-translate-y-1 hover:scale-105  dark:bg-charcoal"
+              className="my-1.5 rounded-2xl bg-apricot p-2 shadow-lg transition delay-75 hover:-translate-y-1 hover:scale-105 dark:bg-charcoal"
             >
               <Save className="items-center justify-center" />
               <span className="sr-only">Save new name for {props.name}</span>
             </button>
             <button
               type="button"
-              className="m-2  rounded-2xl bg-apricot p-2 transition delay-75 hover:-translate-y-1 hover:scale-105 dark:bg-charcoal"
+              className="my-1.5 rounded-2xl bg-apricot p-2 shadow-lg transition delay-75 hover:-translate-y-1 hover:scale-105 dark:bg-charcoal"
               title="Cancel renaming"
               onClick={() => setEditing(false)}
             >
@@ -97,15 +97,18 @@ export default function Todo(props: any) {
       );
     } else if (isEditingDescription === true && isEditing === false) {
       return (
-        <form onSubmit={handleSubmitDescription} className="flex flex-row">
-          <div className="flex basis-11/12 flex-col items-center justify-start">
+        <form
+          onSubmit={handleSubmitDescription}
+          className="m-2 flex w-full flex-row "
+        >
+          <div className="flex basis-11/12 flex-col items-center justify-center">
             {editingTypeInput()}
           </div>
-          <div className="m-1 flex flex-col justify-center">
+          <div className="mx-5 flex basis-1/12 flex-col items-end">
             <button
               title="Save New Description"
               type="submit"
-              className="my-1.5 flex items-center justify-start rounded-2xl bg-apricot p-2 shadow-lg transition delay-75 hover:-translate-y-1 hover:scale-105 dark:bg-charcoal"
+              className="my-1.5 rounded-2xl bg-apricot p-2 shadow-lg transition delay-75 hover:-translate-y-1 hover:scale-105 dark:bg-charcoal"
             >
               <Save />
               <span className="sr-only">
@@ -115,7 +118,7 @@ export default function Todo(props: any) {
             <button
               title="Cancel Description Rewriting"
               type="button"
-              className="my-1.5 flex items-center justify-start rounded-2xl bg-apricot p-2 shadow-lg transition delay-75 hover:-translate-y-1 hover:scale-105 dark:bg-charcoal"
+              className="my-1.5 rounded-2xl bg-apricot p-2 shadow-lg transition delay-75 hover:-translate-y-1 hover:scale-105 dark:bg-charcoal"
               onClick={() => setEditingDescription(false)}
             >
               <Backspace />
@@ -138,11 +141,11 @@ export default function Todo(props: any) {
             </label>
             <p>{props.description}</p>
           </section>
-          <div className="mx-5 flex basis-1/12 flex-col items-end">
+          <div className="mx-5 flex basis-1/12 flex-col items-end justify-center">
             <button
               title="Edit Name"
               type="button"
-              className="my-0.5 rounded-2xl bg-apricot p-2 shadow-lg transition delay-75 hover:-translate-y-1 hover:scale-105 dark:bg-charcoal"
+              className="my-1.5 rounded-2xl bg-apricot p-2 shadow-lg transition delay-75 hover:-translate-y-1 hover:scale-105 dark:bg-charcoal"
               onClick={() => setEditing(true)}
             >
               <Edit />
@@ -152,7 +155,7 @@ export default function Todo(props: any) {
             <button
               title="Edit Description"
               type="button"
-              className="my-0.5 rounded-2xl bg-apricot p-2 shadow-lg transition delay-75 hover:-translate-y-1 hover:scale-105 dark:bg-charcoal"
+              className="my-1.5 rounded-2xl bg-apricot p-2 shadow-lg transition delay-75 hover:-translate-y-1 hover:scale-105 dark:bg-charcoal"
               onClick={() => setEditingDescription(true)}
             >
               <EditNote />
@@ -162,7 +165,7 @@ export default function Todo(props: any) {
             <button
               title="Delete Task"
               type="button"
-              className="my-0.5 rounded-2xl bg-apricot p-2 shadow-lg transition delay-75 hover:-translate-y-1 hover:scale-105 dark:bg-charcoal"
+              className="my-1.5 rounded-2xl bg-apricot p-2 shadow-lg transition delay-75 hover:-translate-y-1 hover:scale-105 dark:bg-charcoal"
               onClick={() => props.deleteTask(props.id)}
             >
               <Close />
