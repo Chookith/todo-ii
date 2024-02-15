@@ -14,12 +14,14 @@ export default function Form(props: any) {
     props.addTask(name);
     setName("");
   }
+
+  const addTitle = `Add New Task ${name}`;
   return (
-    <form onSubmit={handleSubmit} className="mt-5 flex w-full flex-row ">
+    <form onSubmit={handleSubmit} className="m-5 flex flex-row ">
       <input
         type="text"
         id="new-todo-input"
-        className="dark:ring-cinereous mx-3 flex basis-4/5 rounded-2xl p-5  ring ring-dun focus:ring-4 focus:ring-inset focus:ring-dun dark:bg-charcoal"
+        className="mr-3 flex basis-4/5 rounded-2xl p-3 text-center ring  ring-dun focus:ring-4 focus:ring-inset focus:ring-dun dark:bg-charcoal dark:ring-cinereous"
         name="text"
         autoComplete="off"
         value={name}
@@ -27,7 +29,8 @@ export default function Form(props: any) {
       />
       <button
         type="submit"
-        className=" dark:bg-cinereous mx-3 flex basis-1/5 items-center justify-center rounded-full bg-dun shadow-md transition delay-75 hover:-translate-y-1 hover:scale-105 dark:hover:shadow-darkCyan"
+        title={addTitle}
+        className="flex basis-1/5 items-center justify-center rounded-full bg-dun shadow-md transition delay-75 hover:-translate-y-1 hover:scale-105 hover:shadow-lg hover:shadow-coralPink dark:bg-cinereous dark:hover:shadow-darkCyan"
       >
         <Add />
         <span className="sr-only">Add</span>

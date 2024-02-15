@@ -93,7 +93,7 @@ export default function Home() {
     ));
 
   const tasksNoun = taskList.length !== 1 ? "tasks" : "task";
-  const headingText = `${taskList.length} ${tasksNoun} remaining`;
+  const headingText = `${taskList.length} ${tasksNoun} left`;
 
   const filterList = FILTER_NAMES.map((name) => (
     <FilterButton
@@ -108,11 +108,17 @@ export default function Home() {
     <div className="m-5">
       <h1 className="mb-5 text-5xl">Todo II</h1>
       <div className="m-2 flex justify-center ">{filterList}</div>
-      <h2>{headingText}</h2>
-      <ul role="list" className="flex flex-col " aria-labelledby="list-heading">
+      <h2 className="mx-5 flex items-center justify-center text-center">
+        {headingText}
+      </h2>
+      <ul
+        role="list"
+        className="mx-3 flex flex-col"
+        aria-labelledby="list-heading"
+      >
         {taskList}
       </ul>
-      <Form className="flex" addTask={addTask} />
+      <Form className=" flex w-full" addTask={addTask} />
     </div>
   );
 }
