@@ -18,6 +18,11 @@ const FILTER_MAP = {
   Complete: (task: TaskInter) => task.complete === true,
 };
 
+const All = () => true;
+const Active = (task: TaskInter) => task.complete === false;
+const Complete = (task: TaskInter) => task.complete === true;
+const FILTER_ARRAY = [All, Active, Complete];
+
 const FILTER_NAMES = Object.keys(FILTER_MAP);
 
 export default function Home() {
@@ -76,8 +81,20 @@ export default function Home() {
     setTask(editedTaskList);
   }
 
+  function filterBeingUsed() {
+    if (filter === "All") {
+      return All;
+    } else if (filter === "Active") {
+      return Active;
+    } else if (filter === "Complete") {
+      return Complete;
+    } else {
+      return All;
+    }
+  }
+
   const taskList = tasks
-    .filter(FILTER_MAP[filter])
+    .filter(filterBeingUsed())
     .map((task: TaskInter) => (
       <Todo
         id={task.id}
